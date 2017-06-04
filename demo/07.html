@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js画的一个椭圆，重要的是算法</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="1200" height="600"></canvas>
+<script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+    var step = Math.PI / 100
+    var x = 0, y = 0, xx = 0, yy = 0;
+    var flag = false
+    ctx.moveTo(350,200)
+    for (var i = 0; i < 1000; i++) {
+        x = x + step
+        y = y + step
+        ctx.lineTo(200 + 150 * Math.cos(x), 200 + 75 * Math.sin(y))
+        xx += step
+        yy += step
+    }
+
+    ctx.stroke()
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>螺旋而得到的图案</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="600"></canvas>
+<script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+    //        console.log(ctx)
+
+    //椭圆
+    // 假设焦点在 [200,200],[400,200] ,总长是400
+    ctx.moveTo(200, 200)
+
+    ctx.stroke()
+    var step = Math.PI / 180
+    var x = 0, y = 0, xx = 0, yy = 0;
+    var index = step
+
+    setInterval(function () {
+        ctx.clearRect(0, 0, 1000, 600)
+        ctx.beginPath()
+        for (var i = 0; i < 1000; i++) {
+            ctx.lineTo(200 + i/5 * Math.cos(x = x + xx + step), 200 + i/5  * Math.sin(y = y + yy + step))
+        }
+        xx += step
+        yy += step
+        ctx.stroke()
+    }, 20)
+
+</script>
+</body>
+</html>

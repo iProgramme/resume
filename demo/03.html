@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>仅仅是个旋转</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="600"></canvas>
+<script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+    ctx.moveTo(200, 200)
+
+    ctx.stroke()
+    var step = Math.PI / 180
+    var x = 0, y = 0, xx = 0, yy = 0;
+
+    setInterval(function () {
+        ctx.clearRect(0, 0, 1000, 600)
+        ctx.beginPath()
+        for (var i = 0; i < 1000; i++) {
+            ctx.moveTo(200 + 200 * Math.cos(x = x + xx + step), 200 + 200  * Math.sin(y = y + yy + step))
+            ctx.lineTo(200 + 200 * Math.cos(x = x + xx + step), 200 + 200  * Math.sin(y = y + yy + step))
+        }
+        xx += step
+        yy += step
+        ctx.stroke()
+    }, 10)
+
+</script>
+</body>
+</html>

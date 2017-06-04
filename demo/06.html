@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正弦函数</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="1200" height="600"></canvas>
+<script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+    //        console.log(ctx)
+
+    //椭圆
+    // 假设焦点在 [200,200],[400,200] ,总长是400
+
+    ctx.translate(600,300)
+    ctx.moveTo(-600, 0)
+    ctx.lineTo(600,0)
+    ctx.stroke()
+    ctx.beginPath()
+    ctx.moveTo(0, -300)
+    ctx.lineTo(0,300)
+    ctx.stroke()
+    var step = Math.PI / 180
+    var i=-100,y = 0
+    ctx.beginPath()
+    ctx.moveTo(-600, 0)
+    setInterval(function () {
+        y+=step
+        ctx.lineTo(-600+i, 100*Math.sin(y))
+        i+=18/60
+        ctx.stroke()
+    }, 20)
+
+</script>
+</body>
+</html>
