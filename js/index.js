@@ -1,11 +1,18 @@
 $(function(){
+    console.log($("#parent").height())
 
+    var flag = $(window).width()>992?true:false
+    var bg = flag?"background2":"background"
+    var ur = flag?"img/earth2.jpg":"img/earth.png"
+    run(bg,ur)
+    console.log(ur)
+    new DAH(document.querySelectorAll('#parent li'));
     var arrColor = $(window).width()>$(window).height()?
         "rgba(205,205,205,.8)" :
         "rgba(0,0,0,0)"
     $('#dowebok').fullpage({
         navigationColor:"#f0f",
-        sectionsColor: ['rgba(0,0,0,0)', '#4BBFC3', '#7BAABE', '#f90'],
+        sectionsColor: ['rgba(0,0,0,0)', '#fff', '#fff', '#fff'],
         anchors: ['page1', 'page2', 'page3', 'page4'],
         continuousVertical:true,
         navigation:true,
@@ -15,9 +22,11 @@ $(function(){
         controlArrowColor:arrColor,
         afterLoad:function (a,index) {
             if (index==3) {
-                $(window).width()>1200?
-                    run('background2','img/earth2.jpg'):
-                    run('background','img/earth.png')
+
+                $(".table-cell").height($(".d3zhuan.visible-xs-block").height())
+                $(".table-cell").width($(".d3zhuan.visible-xs-block").width())
+            }else{
+
             }
         },
         slidesNavigation:["111","222","333","444"],
@@ -25,18 +34,6 @@ $(function(){
     });
 
 
-    // 手指滑动事件
-    var x = 0;
-    $(".index-y .carousel-inner").width($(".index-y .carousel-inner .item").width()*3)
-    $(".index-y .carousel-inner").on("mousedown",function (e) {
-        x = e.offsetX
-    })
-    $(".index-y .carousel-inner").on("mousemove",function (e) {
-        $(this).children(".item")
-    })
-
-
-    $("img").lazyload();
     // canvas效果
     var config = {
         vx: 4,
