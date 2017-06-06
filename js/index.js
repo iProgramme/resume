@@ -1,12 +1,32 @@
 $(function(){
-    console.log($("#parent").height())
+    // console.log($("#parent").height())
+    $.ajax({
+        type:"get",
+        dataType:"text",
+        url:"js/index3.json",
+        beforeSend:function () {
+            console.log(222)
+        },
+        success:function (info) {
 
+            info = JSON.parse(info)
+            // 模板部分
+            console.log(info)
+            var html = template('template', info);
+            $(".-center").html(html);
+            new DAH(document.querySelectorAll('#parent li'));
+            // console.log(info)
+
+        }
+    })
     var flag = $(window).width()>992?true:false
     var bg = flag?"background2":"background"
     var ur = flag?"img/earth2.jpg":"img/earth.png"
+    // console.log("#"+bg)
+    $("#"+bg).css("display","block")
     run(bg,ur)
-    console.log(ur)
-    new DAH(document.querySelectorAll('#parent li'));
+    // console.log(ur)
+
     var arrColor = $(window).width()>$(window).height()?
         "rgba(205,205,205,.8)" :
         "rgba(0,0,0,0)"
@@ -107,5 +127,7 @@ $(function(){
         }]
     }
     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
+
 
 });

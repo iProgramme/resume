@@ -101,6 +101,10 @@
   -webkit-transition: none;
   transition: none;
 }
+#parent .f img,
+#parent .b img {
+  width: 100%;
+}
 #parent .f {
   background-color: #00BCD4;
   background: -webkit-linear-gradient(#00BCD4, #673AB7);
@@ -434,6 +438,9 @@
 #parent .table-cell {
   display: table-cell;
   vertical-align: middle;
+}
+#parent > img {
+  display: none;
 }
 .bdimgshare-bg {
   display: none;
