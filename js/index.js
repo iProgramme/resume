@@ -1,24 +1,35 @@
 $(function(){
     // console.log($("#parent").height())
-    $.ajax({
-        type:"get",
-        dataType:"text",
-        url:"js/index3.json",
-        beforeSend:function () {
-            console.log(222)
-        },
-        success:function (info) {
+    // $.ajax({
+    //     type:"get",
+    //     dataType:"text",
+    //     url:"js/index3.json",
+    //     beforeSend:function () {
+    //         console.log(222)
+    //     },
+    //     success:function (info) {
+    //
+    //         info = JSON.parse(info)
+    //         // 模板部分
+    //         console.log(info)
+    //         var html = template('template', info);
+    //         $(".-center").html(html);
+    //         new DAH(document.querySelectorAll('#parent li'));
+    //         // console.log(info)
+    //
+    //     }
+    // })
 
-            info = JSON.parse(info)
-            // 模板部分
-            console.log(info)
-            var html = template('template', info);
-            $(".-center").html(html);
-            new DAH(document.querySelectorAll('#parent li'));
-            // console.log(info)
 
-        }
-    })
+    // 拿“json”文件
+    // index3 = JSON.parse(index3)
+    // 模板部分
+    console.log(index3)
+    var html = template('template', index3);
+    $(".-center").html(html);
+    new DAH(document.querySelectorAll('#parent li'));
+
+
     var flag = $(window).width()>992?true:false
     var bg = flag?"background2":"background"
     var ur = flag?"img/earth2.jpg":"img/earth.png"
@@ -32,7 +43,7 @@ $(function(){
         "rgba(0,0,0,0)"
     $('#dowebok').fullpage({
         navigationColor:"#f0f",
-        sectionsColor: ['rgba(0,0,0,0)', '#fff', '#fff', '#fff'],
+        sectionsColor: ['rgba(0,0,0,0)', '#fff', '#fff', 'rgb(68, 185, 209)'],
         anchors: ['page1', 'page2', 'page3', 'page4'],
         continuousVertical:true,
         navigation:true,
@@ -42,7 +53,6 @@ $(function(){
         controlArrowColor:arrColor,
         afterLoad:function (a,index) {
             if (index==3) {
-
                 $(".table-cell").height($(".d3zhuan.visible-xs-block").height())
                 $(".table-cell").width($(".d3zhuan.visible-xs-block").width())
             }else{
@@ -53,7 +63,7 @@ $(function(){
         loopHorizontal:true
     });
 
-
+    $(".d3zhuan.visible-xs-block").height($(".fp-tableCell").height())
     // canvas效果
     var config = {
         vx: 4,

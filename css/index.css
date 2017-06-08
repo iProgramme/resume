@@ -43,7 +43,7 @@
 }
 .index-y .i3info {
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   width: 80%;
   left: 10%;
   background: rgba(0, 0, 0, 0.6);
@@ -55,7 +55,13 @@
   text-align: center;
 }
 .index-y .fp-slidesNav.bottom {
-  bottom: -10px;
+  bottom: 0px;
+  width: 100%;
+  left: 0;
+  margin-left: 0!important;
+}
+.index-y .fp-slidesNav.bottom ul {
+  text-align: center;
 }
 #parent {
   position: relative;
@@ -444,6 +450,41 @@
 }
 .bdimgshare-bg {
   display: none;
+}
+.d3zhuan {
+  position: absolute;
+  top: 0;
+  z-index: 101;
+  text-align: center;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.d3zhuan .container {
+  padding: 0;
+}
+.d3zhuan .table-cell {
+  height: 100%;
+}
+.d3zhuan .table-cell > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.d3zhuan .table-cell > div div h1 {
+  color: #fff;
+  background: linear-gradient(to bottom, #fff, #fff, #fff);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.d3zhuan .table-cell > div div h3 {
+  display: flex;
+  color: #fff;
+  background: linear-gradient(to bottom, #fff, #fff, #fff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  flex-direction: column;
 }
 .bdsharebuttonbox {
   display: none;
